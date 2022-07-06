@@ -1,5 +1,6 @@
 package com.unal.ciclo2grupo28clase8;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -22,7 +23,7 @@ public class Ciclo2Grupo28Clase8 {
         v[3] = 15;
         v[4] = 5;
         //v[5]=45;//error
-        
+
         /*
         s[0] = "Misael";
         s[0] = "Fernando";
@@ -30,8 +31,7 @@ public class Ciclo2Grupo28Clase8 {
         Alumno fer = new Alumno();
         fer.nombre = "Fernando";
         fer.edad = 35;
-        */
-        
+         */
         //salon[0] = new Alumno("Misael", 35);
         //salon[0] = new Alumno("Laura", 40);
 
@@ -51,23 +51,27 @@ public class Ciclo2Grupo28Clase8 {
         int[][] A = new int[5][4];//matriz de 5x4 enteros
         double[][] y = new double[6][6];//matriz de 6x6 reales
         boolean[][] b = new boolean[2][3];//matriz de 2x3 booleanos
-        */
-
+         */
         int[][] datos = {
             {1, 5, 8, -7},
-            {2, -8, 0,6},
+            {2, -8, 0, 6},
             {3, -1, 6, 0},
             {4, 5, -4, -3},
             {5, 0, 5, 0}};
-        
-        
+
         escribe_matrices_ints(datos);
         System.out.println("--------------------------");
-        int cuadrados[][]=cuadrados_matriz(datos);
+        int cuadrados[][] = cuadrados_matriz(datos);
         escribe_matrices_ints(cuadrados);
+
+        int v2[] = {1, 2, 3, 4, 5};
+        int w2[] = {1, 5, -8, 6, 2};
+        System.out.println(punto(v2, w2));
+        System.out.println(Arrays.toString(productoDirecto(v2, w2)));
 
     }
 
+    //----------------------------------
     public static int[] lee_arreglo_enteros() {
         Scanner sc;
         int n;
@@ -82,6 +86,7 @@ public class Ciclo2Grupo28Clase8 {
         return x;
     }
 
+    //------------------------------------------
     public static void escribe_arreglo_reales(int[] x) {
         int n = x.length;
         for (int i = 0; i < n; i++) {
@@ -96,15 +101,17 @@ public class Ciclo2Grupo28Clase8 {
         }
         return s;
     }
-    
+
+    //--------------------------------------------
     public static int prom_arreglo_reales(int[] A) {
         int s = 0;
         for (int i = 0; i < A.length; i++) {
             s += A[i];
         }
-        return s/A.length;
+        return s / A.length;
     }
 
+    //--------------------------------------------
     public static int suma_arreglo_ints_iteracion(int[] A) {
         int s = 0;
         for (int x : A) {
@@ -113,6 +120,7 @@ public class Ciclo2Grupo28Clase8 {
         return s;
     }
 
+    //-----------------------------------------------
     public static int pos_maximo(int[] A) {
         int m = 0;
         for (int i = 0; i < A.length; i++) {
@@ -143,6 +151,30 @@ public class Ciclo2Grupo28Clase8 {
             }
         }
         return Y;
+    }
+
+    //----------------------------------
+    public static int punto(int[] A, int[] B) {
+        int m = 0;
+        int sum = 0;
+        for (int i = 0; i < A.length; i++) {
+
+            m = A[i] * B[i];
+            sum = sum + m;
+        }
+        return sum;
+    }
+    
+    
+    public static int[] productoDirecto(int[] A, int[] B) {
+        int m = 0;
+        int prodDirek[] = new int[A.length];
+        for (int i = 0; i < A.length; i++) {
+
+            prodDirek[i] = A[i] * B[i];
+
+        }
+        return prodDirek;
     }
 
 }
